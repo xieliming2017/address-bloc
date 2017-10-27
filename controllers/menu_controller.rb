@@ -22,10 +22,7 @@ class MenuController
 
     case selection
 
-      when 6
-          system "clear"
-          view_entry_number_n
-          main_menu
+
       when 1
         system "clear"
         view_all_entries
@@ -43,8 +40,13 @@ class MenuController
         read_csv
         main_menu
       when 5
+          system "clear"
+          view_entry_number_n
+          main_menu
+      when 6
         puts "Good-bye"
         exit(0)
+
       else
         system "clear"
         puts "Sorry, that is not a valid input"
@@ -58,8 +60,10 @@ class MenuController
 
     if (number <= address_book.entries.count && number > 0)
       puts "Entry Information:"
-      puts address_book.entries[number-1].to_s
-      main_menu
+      puts address_book.entries[number-1]
+      puts "Press enter to return to the main menu"
+      gets.chomp
+      system "clear"
     else
       puts "Sorry, that is not a valid input"
       view_entry_number_n
